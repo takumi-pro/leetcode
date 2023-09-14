@@ -4,6 +4,10 @@
     "vector": "cpp",
     "iosfwd": "cpp",
     "__hash_table": "cpp",
-    "unordered_map": "cpp"
+    "unordered_map": "cpp",
+    "__tree": "cpp",
+    "bitset": "cpp",
+    "set": "cpp",
+    "format": "cpp"
   }
 }
