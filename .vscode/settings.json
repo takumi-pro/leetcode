@@ -8,6 +8,24 @@
     "__tree": "cpp",
     "bitset": "cpp",
     "set": "cpp",
-    "format": "cpp"
+    "format": "cpp",
+    "__bit_reference": "cpp",
+    "__split_buffer": "cpp",
+    "array": "cpp",
+    "deque": "cpp",
+    "filesystem": "cpp",
+    "forward_list": "cpp",
+    "initializer_list": "cpp",
+    "list": "cpp",
+    "map": "cpp",
+    "regex": "cpp",
+    "span": "cpp",
+    "string": "cpp",
+    "string_view": "cpp",
+    "unordered_set": "cpp",
+    "valarray": "cpp",
+    "chrono": "cpp",
+    "ranges": "cpp",
+    "stacktrace": "cpp"
   }
 }
