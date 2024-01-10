@@ -8,7 +8,6 @@
 class Solution {
 public:
   vector<int> topKFrequent(vector<int>& nums, int k) {
-    vector<int> topKFrequent(vector<int>& nums, int k) {
         unordered_map<int, int> um;
     pair<int, int> p;
     set<int> sn(nums.begin(), nums.end());
@@ -29,7 +28,6 @@ public:
       ans.push_back(pa[i].first);
     }
     return ans;
-    }
   }
 };
 // @lc code=end
