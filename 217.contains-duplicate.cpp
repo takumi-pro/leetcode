@@ -7,14 +7,14 @@
 // @lc code=start
 class Solution {
 public:
-  bool containsDuplicate(vector<int>& nums) {
-    // numsをソート
-    sort(nums.begin(), nums.end());
-    for (int i=0; i<nums.size()-1; i++) {
-      if (nums[i] == nums[i+1]) return true;
+    bool containsDuplicate(vector<int>& nums) {
+        set<int> s;
+        for (const auto& n: nums) {
+            if (s.find(n) != s.end()) return true;
+            s.insert(n);
+        }
+        return false;
     }
-    return false;
-  }
 };
 // @lc code=end
 
