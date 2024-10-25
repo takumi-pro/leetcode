@@ -8,10 +8,10 @@
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        unordered_set<int> us;
+        set<int> s;
         for (const auto& n: nums) {
-            if (us.contains(n)) return true;
-            us.insert(n);
+            if (s.find(n) != s.end()) return true;
+            s.insert(n);
         }
         return false;
     }

@@ -7,20 +7,22 @@
 // @lc code=start
 class Solution {
 public:
-  vector<vector<string>> groupAnagrams(vector<string>& strs) {
-    unordered_map<string, vector<string>> my_map;
-    for (string s : strs) {
-      string tmp = s;
-      sort(tmp.begin(), tmp.end());
-      my_map[tmp].push_back(s);
-    }
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        unordered_map<string, vector<string>> sm;
+        vector<vector<string>> results;
 
-    vector<vector<string>> ans;
-    for (auto x : my_map) {
-      ans.push_back(x.second);
+        for (string str : strs) {
+            string original_str = str;
+            sort(str.begin(), str.end());
+
+            sm[str].push_back(original_str);
+        }
+
+        for (auto m : sm) {
+            results.push_back(m.second);
+        }
+        return results;
     }
-    return ans;
-  }
 };
 // @lc code=end
 

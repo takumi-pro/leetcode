@@ -7,22 +7,14 @@
 // @lc code=start
 class Solution {
 public:
-  vector<int> productExceptSelf(vector<int>& nums) {
-    int zeroCount = count(nums.begin(), nums.end(), 0);
-    if (zeroCount > 1) return vector<int>(nums.size());
-    int prod = 1;
-    for (int n : nums) {
-      if (n) prod *= n;
+    vector<int> productExceptSelf(vector<int>& nums) {
+        vector<int> answers;
+        int ans = nums[0];
+        for (int i=1; i<nums.size(); i++) {
+            
+            ans *= nums[i];
+        }
     }
-    for (int& n : nums) {
-      if (zeroCount) {
-        n = n ? 0 : prod;
-      } else {
-        n = prod/n;
-      }
-    }
-    return nums;
-  }
 };
 // @lc code=end
 
