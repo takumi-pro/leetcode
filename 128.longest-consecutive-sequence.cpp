@@ -8,20 +8,28 @@
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
-      set<int> set_n(nums.begin(), nums.end());
-      vector<int> n(set_n.begin(), set_n.end());
-      int count=0, max_count=0;
+        int n = nums.size();
+        set<int> s(nums.begin(), nums.end());
 
-      if (!n.size()) return 0;
+        int count = 1;
+        int ans = 1;
+        int prev;
 
-      for (int i=1; i<n.size(); i++) {
-        int diff = abs(n[i-1] - n[i]);
-        if (diff == 1) count++;
-        else count = 0;
-        max_count = max(max_count, count);
-      }
-      
-      return max_count+1;
+        if (n==0) return 0;
+        for (const auto& n : s) {
+            int diff = abs(prev - n);
+            if (diff == 1)
+            if (prev) {
+                count++;
+                ans = max(count, ans);
+            } else {
+                count = 1;
+                prev = false;
+            }
+            prev = n;
+        }
+
+        return ans;
     }
 };
 // @lc code=end
