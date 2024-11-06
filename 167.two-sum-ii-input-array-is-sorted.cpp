@@ -8,18 +8,22 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& numbers, int target) {
-        int i, j;
-        for (i = 0, j = numbers.size()-1; i < j;) {
-            if (numbers[i] + numbers[j] == target) break;
-            if (numbers[i] + numbers[j] > target) {
-                j--;
-                continue;
-            } else {
-                i++;
-                continue;
+        int n = numbers.size();
+        unordered_map<int, vector<int>> um;
+
+        vector<int> ans(2);
+        for (int i=0; i<n; i++) um[numbers[i]].push_back(i+1);
+        for (int n : numbers) {
+            int diff = target - n;
+            if (um.find(diff) != um.end()) {
+                ans[0] = um[n][0];
+                if (um[n][0] == um[diff][0] && um[diff].size() > 1) ans[1] = um[diff][1];
+                else ans[1] = um[diff][0];
             }
         }
-        return {i+1, j+1};
+
+        sort(ans.begin(), ans.end());
+        return ans;
     }
 };
 // @lc code=end

@@ -8,29 +8,18 @@
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        int ns = nums.size();
+        int n = nums.size();
         vector<vector<int>> ans;
-        set<vector<int>> s;
-        
-        for (int i = 0; i < ns-2; i++) {
-            for (int j = i + 1, k = ns-1;j < k;) {
-                int sum = nums[i] + nums[j] + nums[k];
-                if (sum == 0) {
-                    s.insert({nums[i], nums[j], nums[k]});
-                    j++;
-                } else if (sum > 0) {
-                    k--;
-                } else if (sum < 0 ) {
-                    j++;
+        for (int i=0; i<n-2; i++) {
+            for (int j=i+1; j<n-1; j++) {
+                for (int k=j+1; k<n; k++) {
+                    if (nums[i]+nums[j]+nums[k] == 0) {
+                        ans.push_back({ nums[i], nums[j], nums[k] });
+                    }
                 }
             }
-        };
-        
-        for (auto it : s) {
-            ans.push_back(it);
         }
-        
+
         return ans;
     }
 };
