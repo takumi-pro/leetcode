@@ -8,23 +8,21 @@
 class Solution {
 public:
     bool isValid(string s) {
-      vector<char> stack;
-        if (s.size()%2 != 0) return false;
-        for (char c : s) {
-          stack.push_back(c);
-          if (stack.size() == 2) {
-            string str(stack.begin(), stack.end());
-            if (
-              str != "()" ||
-              str != "{}" ||
-              str != "[]"
-            ) {
-              return false;
-            };
-            stack.clear();
-          }
+        stack<char> st;
+        bool result = true;
+        for (const auto& c : s) {
+            if (c == '(' || c == '{' || c == '[') {
+                st.push(c);
+            } else {
+                if (st.empty()) result = false;
+                else if (c == ')' && st.top() == '(') st.pop();
+                else if (c == '}' && st.top() == '{') st.pop();
+                else if (c == ']' && st.top() == '[') st.pop();
+                else result = false; 
+            }
         }
-        return true;
+        if (st.size() > 0) result = false;
+        return result;
     }
 };
 // @lc code=end
