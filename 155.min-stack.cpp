@@ -7,30 +7,36 @@
 // @lc code=start
 class MinStack {
 public:
-    
+
     vector<int> stack;
+    vector<int> minStack;
 
     MinStack() {
+        stack.clear();
+        minStack.clear();
     }
     
     void push(int val) {
         stack.push_back(val);
+        if (minStack.empty() || val <= minStack.back()) {
+            minStack.push_back(val);
+        }
     }
     
     void pop() {
-        stack.pop_back();    
+        if (stack.back() == minStack.back()) {
+            minStack.erase(minStack.end() - 1);
+        }
+        stack.erase(stack.end() - 1);
+
     }
     
     int top() {
-        return stack.back();    
+        return stack.back();
     }
     
     int getMin() {
-        int min = stack[0];
-        for (int i = 0; i < stack.size(); i++) {
-            if (min > stack[i]) min = stack[i];
-        }  
-        return min;
+        return minStack.back();      
     }
 };
 
